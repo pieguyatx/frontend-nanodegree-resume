@@ -2,9 +2,8 @@
 This has JavaScript to build the resume.
  */
 
-// Add name
+// Add name and title
 var formattedName = HTMLheaderName.replace("%data%","Jonesy Jackrabbit");
-$("#header").append([formattedName]);
-// Add title
 var formattedRole = HTMLheaderRole.replace("%data%","Master of the Universe");
-$("#header").append([formattedRole]);
+$("#header").prepend([formattedRole]);
+$("#header").prepend([formattedName]);
