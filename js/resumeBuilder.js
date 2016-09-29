@@ -2,12 +2,9 @@
 This has JavaScript to build the resume.
  */
 
-// Script to add name
- $("#main").append(["Pius Wong"]);
-
-// Testing variables
-var awesomeThoughts = "I am Pius, and I am AWESOME!";
-var funThoughts = awesomeThoughts.replace("AWESOME","FUN");
-console.log("awesomeThoughts: ",awesomeThoughts);
-console.log("funThoughts: ", funThoughts);
- $("#main").append(["<hr>",funThoughts]);
+// Add name
+var formattedName = HTMLheaderName.replace("%data%","Jonesy Jackrabbit");
+$("#header").append([formattedName]);
+// Add title
+var formattedRole = HTMLheaderRole.replace("%data%","Master of the Universe");
+$("#header").append([formattedRole]);
