@@ -13,7 +13,7 @@ var bio = {
     "location": "Mt. Etna, Spain"
   },
   "pictureURL": "images/fry.jpg",
-  "welcomeMessage": "Howdy, folks! Welcome this swanky pad!"
+  "welcomeMessage": "Howdy, folks! Welcome to this swanky pad!"
 };
 
 // Add name and title
@@ -33,3 +33,16 @@ $("#header").append([formattedWelcome]);
 // Add photo
 var formattedBiopic = HTMLbioPic.replace("%data%",bio.pictureURL);
 $("#header").append([formattedBiopic]);
+
+// Add work & education
+var work = {};
+work.position = "Hacker";
+work.employer = "Motorola";
+work.years = "3";
+work.city = "Sheboygen, WI";
+var education = {};
+education["name"] = "The University of Fenix";
+education["years"] = "2000-2008";
+education["city"] = "Antwerp, Belgie";
+$("#header").append([work["position"]]);
+$("#header").append([education.name]);
