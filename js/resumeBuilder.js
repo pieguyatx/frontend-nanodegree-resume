@@ -16,6 +16,7 @@ var bio = {
   "welcomeMessage": "Howdy, folks! Welcome to this swanky pad!"
 };
 
+/*
 // Add name and title
 var formattedName = HTMLheaderName.replace("%data%",bio.name);
 var formattedRole = HTMLheaderRole.replace("%data%",bio.role);
@@ -33,6 +34,7 @@ $("#header").append([formattedWelcome]);
 // Add photo
 var formattedBiopic = HTMLbioPic.replace("%data%",bio.pictureURL);
 $("#header").append([formattedBiopic]);
+*/
 
 // Add work & education
 var work = {};
@@ -40,9 +42,67 @@ work.position = "Hacker";
 work.employer = "Motorola";
 work.years = "3";
 work.city = "Sheboygen, WI";
-var education = {};
-education["name"] = "The University of Fenix";
-education["years"] = "2000-2008";
-education["city"] = "Antwerp, Belgie";
-$("#header").append([work["position"]]);
-$("#header").append([education.name]);
+//$("#header").append([work["position"]]);
+
+
+// Add more school information with JSON
+var education = {
+  "schools": [
+    {
+      "name": "The University of Fenix",
+      "city": "Antwerp, Belgie",
+      "degree": "BS",
+      "major": "Fishing",
+      "minor": "Basket Weaving",
+      "year": 2003
+    },
+    {
+      "name": "The School of Hard Knocks",
+      "city": "Toronto, Canada",
+      "degree": "MS",
+      "major": "Environmental Engineering",
+      "year": 2004
+    }
+  ],
+  "onlinecourses": [
+    {
+      "title": "git",
+      "school": "Udacity",
+      "year": 2016
+    },
+    {
+      "title": "JavaScript",
+      "school": "Youdacity",
+      "year": 2016
+    }
+  ]
+};
+//$("#header").append([education.schools[0].minor]);
+
+// Create project object
+var projects = {
+  "robotics": [
+    {
+      "organization": "masters",
+      "title": "Taking over small countries with robotic armies"
+    },
+    {
+      "organization": "bachelors",
+      "title": "Taking over small villages with robot bugs"
+    }
+  ],
+  "improv": [
+    {
+      "organization": "Higgledy Pigleddy Labs",
+      "title": "Improv and Engineering"
+    },
+    {
+      "organization": "Higgledy Pigleddy Labs",
+      "title": "Musical Improv Singing and Dancing"
+    },
+    {
+      "organization": "Berklee School of Music",
+      "title": "Improvisational Oboe"
+    }
+  ]
+};
