@@ -13,7 +13,8 @@ var bio = {
     "location": "Mt. Etna, Spain"
   },
   "pictureURL": "images/fry.jpg",
-  "welcomeMessage": "Howdy, folks! Welcome to this swanky pad!"
+  "welcomeMessage": "Howdy, folks! Welcome to this swanky pad!",
+  "skills": ["peacekeeping", "shoe-tying", "varmint-huntin'","yoga","sewin'","listlessness"]
 };
 
 /*
@@ -106,3 +107,11 @@ var projects = {
     }
   ]
 };
+
+if(bio.skills.length > 0){
+  $("#header").append([HTMLskillsStart]);
+  for (let i=0; i<bio.skills.length; i++){
+    var formattedSkill = HTMLskills.replace("%data%",bio.skills[i]);
+    $("#skills").append([formattedSkill]);
+  }
+}
