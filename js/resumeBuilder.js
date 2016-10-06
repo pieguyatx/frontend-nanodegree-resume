@@ -17,7 +17,6 @@ var bio = {
   "skills": ["peacekeeping", "shoe-tying", "varmint-huntin'","yoga","sewin'","listlessness"]
 };
 
-/*
 // Add name and title
 var formattedName = HTMLheaderName.replace("%data%",bio.name);
 var formattedRole = HTMLheaderRole.replace("%data%",bio.role);
@@ -35,14 +34,31 @@ $("#header").append([formattedWelcome]);
 // Add photo
 var formattedBiopic = HTMLbioPic.replace("%data%",bio.pictureURL);
 $("#header").append([formattedBiopic]);
-*/
 
 // Add work & education
-var work = {};
-work.position = "Hacker";
-work.employer = "Motorola";
-work.years = "3";
-work.city = "Sheboygen, WI";
+var work = {
+  "workplaces": [
+      {
+        "position": "Hacker",
+        "employer": "Motorola",
+        "years": 3,
+        "city": "Sheboygen, WI"
+      },
+      {
+        "position": "Fullback",
+        "employer": "The University of Notre Dame",
+        "years": 11,
+        "city": "Notre Dame, WI"
+      },
+      {
+        "position": "Life Coach",
+        "employer": "Tyson Foods",
+        "years": 2,
+        "city": "London, WI"
+      }
+  ]
+};
+
 //$("#header").append([work["position"]]);
 
 
@@ -108,10 +124,21 @@ var projects = {
   ]
 };
 
+// Add skills
 if(bio.skills.length > 0){
   $("#header").append([HTMLskillsStart]);
   for (let i=0; i<bio.skills.length; i++){
     var formattedSkill = HTMLskills.replace("%data%",bio.skills[i]);
     $("#skills").append([formattedSkill]);
   }
+}
+
+// Add jobs (using for..in, to avoid counting elements)
+for(var job in work.workplaces){
+  //console.log(work.workplaces[job])
+  $("#workExperience").append([HTMLworkStart]);
+  var formattedJob = HTMLworkEmployer.replace("%data%",work.workplaces[job].employer);
+  var formattedTitle = HTMLworkTitle.replace("%data%",work.workplaces[job].position);
+  var input = formattedJob + formattedTitle;
+  $(".work-entry:last").append(input);
 }
