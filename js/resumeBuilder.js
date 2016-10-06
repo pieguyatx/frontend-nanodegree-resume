@@ -137,7 +137,7 @@ if(bio.skills.length > 0){
 }
 
 // Add jobs (using for..in, to avoid counting elements)
-for(var job in work.workplaces){
+for(var job=0; job<work.workplaces.length; job++){
   //console.log(work.workplaces[job])
   $("#workExperience").append([HTMLworkStart]);
   var formattedJob = HTMLworkEmployer.replace("%data%",work.workplaces[job].employer);
