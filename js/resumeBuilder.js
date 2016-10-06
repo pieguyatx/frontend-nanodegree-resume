@@ -41,20 +41,23 @@ var work = {
       {
         "position": "Hacker",
         "employer": "Motorola",
-        "years": 3,
-        "city": "Sheboygen, WI"
+        "years": "2 years",
+        "city": "Sheboygen, WI",
+        "description": "Fought clams weekly for sport."
       },
       {
         "position": "Fullback",
         "employer": "The University of Notre Dame",
-        "years": 11,
-        "city": "Notre Dame, WI"
+        "years": "11 years",
+        "city": "Notre Dame, WI",
+        "description": "Taught elderly couples how to enjoy the Chinese language."
       },
       {
         "position": "Life Coach",
         "employer": "Tyson Foods",
-        "years": 2,
-        "city": "London, WI"
+        "years": "Too long",
+        "city": "London, WI",
+        "description": "Spammed spammers in retaliation for jaywalking."
       }
   ]
 };
@@ -141,4 +144,10 @@ for(var job in work.workplaces){
   var formattedTitle = HTMLworkTitle.replace("%data%",work.workplaces[job].position);
   var input = formattedJob + formattedTitle;
   $(".work-entry:last").append(input);
+  var formattedDate = HTMLworkDates.replace("%data%",work.workplaces[job].years);
+  $(".work-entry:last").append(formattedDate);
+  var formattedCity = HTMLworkLocation.replace("%data%",work.workplaces[job].city);
+  $(".work-entry:last").append(formattedCity);
+  var formattedDescription = HTMLworkDescription.replace("%data%",work.workplaces[job].description);
+  $(".work-entry:last").append(formattedDescription);
 }
