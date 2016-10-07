@@ -158,3 +158,14 @@ function displayWork(){
 
 // Invoke code to show work.
 displayWork();
+
+// Internationalize button
+$("#main").append(internationalizeButton);
+function inName(name){
+  name = name.split(" ");
+  name[1] = name[1].toUpperCase();
+  name = name[0] + " " + name[1];
+  //console.log(name);
+  bio.name = name;
+  return name;
+}
