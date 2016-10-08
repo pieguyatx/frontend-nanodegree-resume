@@ -182,11 +182,11 @@ projects.display = function(){
     for(var proj in projects[category]){
       $("#projects").append(HTMLprojectStart);
       var formatted = HTMLprojectTitle.replace("%data%",projects[category][proj].title);
-      $("#projects").append(formatted);
+      $(".project-entry").append(formatted);
       formatted = HTMLprojectDates.replace("%data%",projects[category][proj].organization);
-      $("#projects").append(formatted);
+      $(".project-entry").append(formatted);
       formatted = HTMLprojectDescription.replace("%data%",projects[category][proj].description);
-      $("#projects").append(formatted);
+      $(".project-entry").append(formatted);
       //console.log(projects.robotics[proj]);
     };
   };
