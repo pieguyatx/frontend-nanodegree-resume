@@ -104,25 +104,30 @@ var projects = {
   "robotics": [
     {
       "organization": "masters",
-      "title": "Taking over small countries with robotic armies"
+      "title": "Taking over small countries with robotic armies",
+      "description": "Feeding cats when they're hungry, with robots."
     },
     {
       "organization": "bachelors",
-      "title": "Taking over small villages with robot bugs"
+      "title": "Freedom",
+      "description": "Taking over small villages with robot bugs"
     }
   ],
   "improv": [
     {
       "organization": "Higgledy Pigleddy Labs",
-      "title": "Improv and Engineering"
+      "title": "Improv and Engineering",
+      "description": "Fun n' games, sonny."
     },
     {
-      "organization": "Higgledy Pigleddy Labs",
-      "title": "Musical Improv Singing and Dancing"
+      "organization": "Spots, Inc.",
+      "title": "Musical Improv Singing and Dancing",
+      "description": "Did you ever wonder what you wanted to be when you grew up?  Did you?  I did.  And boy, when I grew up, I grew up good.  Believe you me."
     },
     {
       "organization": "Berklee School of Music",
-      "title": "Improvisational Oboe"
+      "title": "Improvisational Oboe",
+      "description": "My buddy Sheila Burkenstien says 'hey'"
     }
   ]
 };
@@ -169,3 +174,22 @@ function inName(name){
   bio.name = name;
   return name;
 }
+
+// Add projects to resume.
+// Encapsulate a function inside the projects object (a method) to display projects
+projects.display = function(){
+  for(var category in projects){
+    for(var proj in projects[category]){
+      $("#projects").append(HTMLprojectStart);
+      var formatted = HTMLprojectTitle.replace("%data%",projects[category][proj].title);
+      $("#projects").append(formatted);
+      formatted = HTMLprojectDates.replace("%data%",projects[category][proj].organization);
+      $("#projects").append(formatted);
+      formatted = HTMLprojectDescription.replace("%data%",projects[category][proj].description);
+      $("#projects").append(formatted);
+      //console.log(projects.robotics[proj]);
+    };
+  };
+}
+
+projects.display();
