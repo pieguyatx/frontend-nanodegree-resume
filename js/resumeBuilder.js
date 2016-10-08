@@ -10,7 +10,7 @@ var bio = {
     "mobile": "999-999-9999",
     "email": "jonesy@mastersoftheuniverse.com",
     "twitter": "@PBNJSammiches",
-    "location": "Mt. Etna, Spain"
+    "location": "Barcelona, Spain"
   },
   "pictureURL": "images/fry.jpg",
   "welcomeMessage": "Howdy, folks! Welcome to this swanky pad!",
@@ -182,14 +182,17 @@ projects.display = function(){
     for(var proj in projects[category]){
       $("#projects").append(HTMLprojectStart);
       var formatted = HTMLprojectTitle.replace("%data%",projects[category][proj].title);
-      $(".project-entry").append(formatted);
+      $(".project-entry:last").append(formatted);
       formatted = HTMLprojectDates.replace("%data%",projects[category][proj].organization);
-      $(".project-entry").append(formatted);
+      $(".project-entry:last").append(formatted);
       formatted = HTMLprojectDescription.replace("%data%",projects[category][proj].description);
-      $(".project-entry").append(formatted);
+      $(".project-entry:last").append(formatted);
       //console.log(projects.robotics[proj]);
     };
   };
 }
 
 projects.display();
+
+// Add map
+$("#mapDiv").append(googleMap);
