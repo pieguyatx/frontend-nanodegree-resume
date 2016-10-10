@@ -49,14 +49,14 @@ var work = {
         "position": "Fullback",
         "employer": "The University of Notre Dame",
         "years": "11 years",
-        "city": "Notre Dame, WI",
+        "city": "Notre Dame, IN",
         "description": "Taught elderly couples how to enjoy the Chinese language."
       },
       {
         "position": "Life Coach",
         "employer": "Tyson Foods",
         "years": "Too long",
-        "city": "London, WI",
+        "city": "London, UK",
         "description": "Spammed spammers in retaliation for jaywalking."
       }
   ]
@@ -70,7 +70,7 @@ var education = {
   "schools": [
     {
       "name": "The University of Fenix",
-      "city": "Antwerp, Belgie",
+      "city": "Antwerp, Belgium",
       "degree": "BS",
       "major": "Fishing",
       "minor": "Basket Weaving",
@@ -88,12 +88,14 @@ var education = {
     {
       "title": "git",
       "school": "Udacity",
-      "year": 2016
+      "year": 2016,
+      "url": "It's a secret"
     },
     {
       "title": "JavaScript",
       "school": "Youdacity",
-      "year": 2016
+      "year": 2016,
+      "url": "www.google.com"
     }
   ]
 };
@@ -191,8 +193,37 @@ projects.display = function(){
     };
   };
 }
-
 projects.display();
+
+// Add education
+education.display = function(){
+  // Show degrees
+  for(var school in education.schools){
+    $("#education").append(HTMLschoolStart);
+    var formatted = HTMLschoolName.replace("%data%",education.schools[school].name)
+      + HTMLschoolDegree.replace("%data%",education.schools[school].degree);
+    $(".education-entry:last").append(formatted);
+    var formatted = HTMLschoolDates.replace("%data%",education.schools[school].year);
+    $(".education-entry:last").append(formatted);
+    var formatted = HTMLschoolLocation.replace("%data%",education.schools[school].city);
+    $(".education-entry:last").append(formatted);
+    var formatted = HTMLschoolMajor.replace("%data%",education.schools[school].major);
+    $(".education-entry:last").append(formatted);
+  };
+  // Show online courses
+  $("#education").append(HTMLonlineClasses);
+  for(var school in education.onlinecourses){
+    $("#education").append(HTMLschoolStart);
+    var formatted = HTMLonlineTitle.replace("%data%",education.onlinecourses[school].title)
+      + HTMLonlineSchool.replace("%data%",education.onlinecourses[school].school);
+    $(".education-entry:last").append(formatted);
+    var formatted = HTMLonlineDates.replace("%data%",education.onlinecourses[school].year);
+    $(".education-entry:last").append(formatted);
+    var formatted = HTMLonlineURL.replace("%data%",education.onlinecourses[school].url);
+    $(".education-entry:last").append(formatted);
+  };
+}
+education.display();
 
 // Add map
 $("#mapDiv").append(googleMap);
